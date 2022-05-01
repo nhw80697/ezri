@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark" [style.backgroundColor]="isUser ? 'green' : 'blue'">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">עזרי מעם</a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" href="messages">לוח מודעות</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="delivery">מזון וציוד רפואי</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+            <li *ngIf="!isUser" class="nav-item"><a class="nav-link" routerLink="/login">היכנס</a>
+            </li>
+            <li *ngIf="!isUser" class="nav-item"><a class="nav-link" routerLink="/create-account">צור חשבון</a></li>
+
+            <li *ngIf="isUser" class="nav-item"><span class="navbar-text"> {{generalService.email}}
+                </span></li>
+            <li *ngIf="isUser" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="cursor: pointer;">
+                    <li><a class="dropdown-item" *ngIf="generalService.thereIsUser" (click)="logout()">התנתק</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>

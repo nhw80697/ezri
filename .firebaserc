@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ng-chat-1e405": {
+      "hosting": {
+        "ezri": [
+          "ng-chat-1e405"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ng-chat-1e405"
+  }
+}

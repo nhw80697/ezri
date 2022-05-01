@@ -1,0 +1,18 @@
+<div>
+    <form style="margin-top: 20vh;" class="loginForm">
+        <p style="text-align: center; font-weight: bold; font-size: 200%;">כניסה לחשבון</p>
+        <div>
+            <input style="width: 100%;" type="text" placeholder='דואר אלקטרוני' #email>
+        </div>
+        <div style="margin-top: 2vh;">
+            <input style="width: 100%;" type="password" placeholder='סיסמה' #password>
+        </div>
+        <p style="color: red; font-weight: bold;">{{waring}}</p>
+        <div style="text-align: center;">
+            <button type="button" class="btn btn-primary btn-sm"
+                (click)="login(email.value,password.value)">כניסה</button>
+        </div>
+
+
+    </form>
+</div>

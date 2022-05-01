@@ -1,0 +1,45 @@
+<p style="font-weight: bold; text-align: center; margin-top: 1%;">מוצר חדש</p>
+<div style="display: flex; gap: 3%; justify-content: center;">
+    <select style="width: 60%;" class="form-select" aria-label="Default select"
+        [(ngModel)]="delivery.deliveryOrRequest">
+        <option value="למסירה" selected>למסירה</option>
+        <option value="בקשה">בקשה</option>
+    </select>
+    <div class="dropdown">
+        <button style="width: 25;" class="btn btn-secondary btn-sm dropdown-toggle" type="button"
+            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            איזור
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li *ngFor="let city of cities" style="margin-right: 2%;">
+                <div class="form-check">
+                    <span>{{city.name}}</span>
+                    <input class="form-check-input" type="checkbox" [(ngModel)]="cities[city.id].bool" value={{city}}>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div style="display: flex; gap: 3%; margin-top: 5%; justify-content: center;">
+    <select style="width: 50%;" class="form-select form-control form-control-sm" aria-label="Default select">
+        <option *ngFor="let product of products">
+            {{product}}
+        </option>
+    </select>
+    <input style="width: 25%;" placeholder="כמות" type="number" min="1" max="99" [(ngModel)]="delivery.quantity"
+        class="form-control form-control-sm">
+</div>
+<p style="margin-top: 5%; font-weight: bold;">פרטים ליצירת קשר:</p>
+<div style="display: flex; margin-top: 1%; gap: 1%; justify-content: center;">
+    <input class="form-control" type="text" [(ngModel)]="delivery.contactInfo.email" placeholder="דוא''ל">
+    <input class="form-control" type="text" [(ngModel)]="delivery.contactInfo.phonNumber1" placeholder="טלפון 1">
+    <input class="form-control" type="text" [(ngModel)]="delivery.contactInfo.phonNumber2" placeholder="טלפון 2">
+</div>
+<div class="mb-3">
+    <textarea class="form-control" style="width: 80%; margin: auto auto; margin-top: 3%;" rows="2" placeholder="הערה..."
+        [(ngModel)]="delivery.comment"></textarea>
+</div>
+<div style="margin: auto; width: 25%; margin-top: 3%; margin-bottom: 3%;">
+    <button type="submit" class="btn btn-primary btn-sm" style="background-color:green;width: 100%;"
+        (click)="addDelivery()" data-bs-dismiss="modal">פרסם</button>
+</div>

@@ -1,0 +1,35 @@
+<button class="btn btn-primary" style="margin-top: 2vh; margin-right: 1%; background-color: green;"
+    data-bs-toggle="modal" data-bs-target="#addMessage"><i class="bi bi-plus-circle"></i></button>
+<p style="font-weight: bold; text-align: center;">מודעות על מסירה או בקשה של עודפי מזון רפואי למחלות IBD</p>
+
+<table class="table" style="margin: auto auto; width: 80%;">
+    <thead>
+        <tr>
+            <th scope="col">מוצר</th>
+            <th scope="col">כמות</th>
+            <th scope="col">עיר</th>
+            <th scope="col">טלפון</th>
+            <th scope="col">דוא"ל</th>
+            <th scope="col">הערה</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let delvery of deliverys |async">
+            <td>{{delvery.product}}</td>
+            <td>{{delvery.quantity}}</td>
+            <td>{{delvery.city[0].name}}</td>
+            <td>{{delvery.contactInfo.phonNumber1}}</td>
+            <td>{{delvery.contactInfo.email}}</td>
+            <td>{{delvery.comment}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="addMessage" tabindex="-1" aria-labelledby="addMessage" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <app-add-delivery></app-add-delivery>
+        </div>
+    </div>
+</div>

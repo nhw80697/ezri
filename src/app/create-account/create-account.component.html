@@ -1,0 +1,21 @@
+<div class="loginForm">
+    <form style="margin-top: 20vh;">
+        <p style="text-align: center; font-weight: bold; font-size: 200%;">צור חשבון חדש</p>
+        <div>
+            <input type="text" style="width: 100%;" placeholder='דואר אלקטרוני' #email>
+        </div>
+        <div style="margin-top: 2vh;">
+            <input type="text" style="width: 100%;" placeholder='בחר סיסמה חדשה' #password>
+        </div>
+        <div style="margin-top: 2vh;">
+            <input type="text" style="width: 100%;" placeholder='הקלד שוב את הסיסמה' #password2>
+        </div>
+        <p style="color: red; font-weight: bold;">{{waring}}</p>
+        <div style="text-align: center;">
+            <button type="button" class="btn btn-primary btn-sm"
+                (click)="createAccount(email.value,password.value,password2.value)">צור
+                חשבון</button>
+        </div>
+
+    </form>
+</div>

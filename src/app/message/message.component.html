@@ -1,0 +1,24 @@
+<button class="btn btn-primary" style="margin-top: 2vh; margin-right: 1%; background-color: green;"
+    data-bs-toggle="modal" data-bs-target="#addMessage"><i class="bi bi-plus-circle"></i></button>
+
+<div class="card" style="width: 80%; margin: auto auto; margin-top: 1%;" *ngFor="let message of messages | async">
+    <div class="card-header">
+        {{ message.title}}
+        <span style="font-size: smaller;"> מאת {{message.messageData.user}}</span>
+        <span style="font-size: smaller; background-color: red; cursor: pointer;"
+            *ngIf="generalService.email == message.messageData.user" (click)="deleteMessage(message.id)"> מחק מודעה
+        </span>
+    </div>
+    <div class="card-body">
+        {{message.content}}
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="addMessage" tabindex="-1" aria-labelledby="addMessage" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <app-add-message></app-add-message>
+        </div>
+    </div>
+</div>

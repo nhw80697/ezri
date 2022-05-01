@@ -98,6 +98,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "ezri:build:production",
+            "firebaseProject": "ng-chat-1e405",
+            "firebaseHostingSite": "ng-chat-1e405"
+          }
         }
       }
     }

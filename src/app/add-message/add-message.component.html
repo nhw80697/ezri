@@ -1,0 +1,29 @@
+<div style="width: 80%; margin: auto auto; margin-top: 5%;">
+    <p style="font-weight: bold; text-align: center;">מודעה חדשה</p>
+    <div class="mb-3">
+        <input type="text" class="form-control" placeholder="כותרת" [(ngModel)]="title">
+    </div>
+    <div class="mb-3">
+        <textarea class="form-control" rows="5" placeholder="תוכן הודעה" [(ngModel)]="content"></textarea>
+    </div>
+    <div style="display: flex; justify-content: left; gap: 2%;">
+        <div class="dropdown">
+            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                מחלקות:
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li *ngFor="let platoon of platoons" style="margin-right: 2%;">
+                    <div class="form-check">
+                        <span>{{platoon.name}}</span>
+                        <input class="form-check-input" type="checkbox" value={{platoon}} id="platoon.id"
+                            [(ngModel)]="platoons[platoon.id].bool">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm" style="background-color:green; margin-bottom: 2%;"
+            [disabled]="!title || !content" data-bs-dismiss="modal" (click)="addMessage()">פרסם</button>
+    </div>
+
+</div>
