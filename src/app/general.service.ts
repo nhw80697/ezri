@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import * as firebase from "firebase/app";
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class GeneralService {
   error: any;
 
   constructor(public afs: AngularFirestore, public afAuth: AngularFireAuth) {
+
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.thereIsUser.next(true);
@@ -35,7 +37,7 @@ export class GeneralService {
 
 
   createUser(email: string, password: string) {
-    this.afAuth.createUserWithEmailAndPassword(email, password)
+    return this.afAuth.createUserWithEmailAndPassword(email, password)
       .then(() => {
         this.loginUser(email, password);
       })

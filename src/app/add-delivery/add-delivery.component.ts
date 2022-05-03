@@ -10,7 +10,7 @@ interface Delivery {
   deliveryOrRequest: string;
   city: Array<object>;
   messageData: { date: object, user: string }
-  contactInfo: { email: string | null | undefined, phonNumber1: string, phonNumber2: string };
+  contactInfo: { email: string | null | undefined, phonNumber1: string };
   comment: string;
 }
 
@@ -42,7 +42,7 @@ export class AddDeliveryComponent implements OnInit {
     product: this.products[0],
     city: [...this.cities],
     messageData: { date: new Date(), user: "" },
-    contactInfo: { email: '', phonNumber1: '', phonNumber2: '' },
+    contactInfo: { email: '', phonNumber1: '' },
     comment: ''
   }
 
@@ -62,7 +62,7 @@ export class AddDeliveryComponent implements OnInit {
       'comment': this.delivery.comment
     }).then(() => {
       this.delivery.city = [...this.cities];
-      this.delivery.contactInfo = { email: '', phonNumber1: '', phonNumber2: '' };
+      this.delivery.contactInfo = { email: '', phonNumber1: '' };
       this.delivery.quantity = 1;
       this.delivery.comment = '';
     });

@@ -30,10 +30,11 @@
         class="form-control form-control-sm">
 </div>
 <p style="margin-top: 5%; font-weight: bold;">פרטים ליצירת קשר:</p>
-<div style="display: flex; margin-top: 1%; gap: 1%; justify-content: center;">
-    <input class="form-control" type="text" [(ngModel)]="delivery.contactInfo.email" placeholder="דוא''ל">
-    <input class="form-control" type="text" [(ngModel)]="delivery.contactInfo.phonNumber1" placeholder="טלפון 1">
-    <input class="form-control" type="text" [(ngModel)]="delivery.contactInfo.phonNumber2" placeholder="טלפון 2">
+<div style="display: flex; margin-top: 1%; gap: 1%; justify-content: center">
+    <input style="width: 50%;" class="form-control" type="text" [(ngModel)]="delivery.contactInfo.email"
+        placeholder="דוא''ל">
+    <input style="width: 30%;" class="form-control" type="text" [(ngModel)]="delivery.contactInfo.phonNumber1"
+        placeholder="טלפון">
 </div>
 <div class="mb-3">
     <textarea class="form-control" style="width: 80%; margin: auto auto; margin-top: 3%;" rows="2" placeholder="הערה..."

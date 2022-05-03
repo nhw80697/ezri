@@ -4,7 +4,8 @@
 <div class="card" style="width: 80%; margin: auto auto; margin-top: 1%;" *ngFor="let message of messages | async">
     <div class="card-header">
         {{ message.title}}
-        <span style="font-size: smaller;"> מאת {{message.messageData.user}}</span>
+        <span style="font-size: smaller;"> מאת {{message.messageData.user}} בתאריך
+            {{message.messageData.date.toDate() | date:'dd/MM/yyyy h:mm:ss a'}}</span>
         <span style="font-size: smaller; background-color: red; cursor: pointer;"
             *ngIf="generalService.email == message.messageData.user" (click)="deleteMessage(message.id)"> מחק מודעה
         </span>

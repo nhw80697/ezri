@@ -2,12 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { GeneralService } from '../general.service';
+import * as firestore from 'firebase/firestore';
+import Timestamp = firestore.Timestamp;
+import { formatDate } from "@angular/common";
 
 interface Message {
   id: string
   title: string;
   content: string;
-  messageData: { date: object, user: string }
+  messageData: { date: Timestamp, user: string }
 }
 @Component({
   selector: 'app-message',
@@ -15,7 +18,7 @@ interface Message {
   styleUrls: ['./message.component.css']
 })
 export class MessageComponent implements OnInit {
-  messageCol: AngularFirestoreCollection<Message> = this.afs.collection('messages');
+  messageCol: AngularFirestoreCollection<Message> = this.afs.collection('messages', ref => ref.orderBy('messageData.date', 'desc'));
   messageDoc: AngularFirestoreDocument<Message> | undefined;
   messages: Observable<Message[]> = this.messageCol.valueChanges();
   constructor(private afs: AngularFirestore, public generalService: GeneralService) { }
