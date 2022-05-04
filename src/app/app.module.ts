@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard, LoginGuard } from './auth.guard';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,7 +20,7 @@ import { DeliveryComponent } from './delivery/delivery.component';
 import { AddDeliveryComponent } from './add-delivery/add-delivery.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
   { path: 'create-account', component: CreateAccountComponent },
   { path: 'messages', component: MessageComponent, canActivate: [AuthGuard] },
   { path: 'add-message', component: AddMessageComponent },
@@ -48,7 +48,7 @@ const routes: Routes = [
     AngularFireAuthModule,
     AngularFirestoreModule
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

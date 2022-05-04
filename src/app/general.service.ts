@@ -58,6 +58,7 @@ export class GeneralService {
     this.afAuth.signOut()
       .then(() => {
         this.email = "אורח";
+        window.location.reload();
       })
       .catch(function (error) { alert(error); });
   }
