@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { GeneralService } from '../general.service';
+import { Delivery } from '../interfaces'
 
 @Component({
   selector: 'app-delivery',
@@ -9,7 +10,7 @@ import { GeneralService } from '../general.service';
   styleUrls: ['./delivery.component.css']
 })
 export class DeliveryComponent implements OnInit {
-  deliveryCol: AngularFirestoreCollection = this.afs.collection('deliverys');
+  deliveryCol: AngularFirestoreCollection<Delivery> = this.afs.collection('deliverys');
   deliverys: Observable<any> = this.deliveryCol.valueChanges();
   constructor(private afs: AngularFirestore, public generalService: GeneralService) {
     this.deliverys.subscribe((ee) => {

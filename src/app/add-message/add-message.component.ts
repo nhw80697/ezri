@@ -5,15 +5,7 @@ import Timestamp = firestore.Timestamp;
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { GeneralService } from '../general.service';
-
-
-interface Message {
-  id: string
-  title: string;
-  content: string;
-  messageData: { date: object, user: string }
-  platoons: Array<string>
-}
+import { Message } from '../interfaces';
 
 @Component({
   selector: 'app-add-message',

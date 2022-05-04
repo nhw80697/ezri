@@ -5,13 +5,8 @@ import { GeneralService } from '../general.service';
 import * as firestore from 'firebase/firestore';
 import Timestamp = firestore.Timestamp;
 import { formatDate } from "@angular/common";
+import { Message } from '../interfaces';
 
-interface Message {
-  id: string
-  title: string;
-  content: string;
-  messageData: { date: Timestamp, user: string }
-}
 @Component({
   selector: 'app-message',
   templateUrl: './message.component.html',

@@ -16,11 +16,7 @@ export class NavbarComponent implements OnInit {
 
   isUser: boolean | undefined
   email: string | undefined | null = this.generalService.email;
-  constructor(public router: Router, public generalService: GeneralService) {
-    this.generalService.thereIsUser.subscribe({
-      next: (user) => { this.isUser = user }
-    })
-  }
+  constructor(public router: Router, public generalService: GeneralService) { }
 
   logout() {
     this.generalService.logoutUser();

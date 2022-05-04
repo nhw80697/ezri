@@ -9,7 +9,7 @@ import * as firebase from "firebase/app";
 })
 export class GeneralService {
 
-  thereIsUser = new Subject<boolean>()
+  userData: any;
   email: string | undefined | null = "אורח";
   error: any;
 
@@ -17,12 +17,20 @@ export class GeneralService {
 
     this.afAuth.authState.subscribe(user => {
       if (user) {
-        this.thereIsUser.next(true);
         this.email = user.email;
+        this.userData = user;
+        localStorage.setItem('user', JSON.stringify(this.userData));
+        JSON.parse(localStorage.getItem('user')!);
       } else {
-        this.thereIsUser.next(false)
+        localStorage.setItem('user', 'null');
+        JSON.parse(localStorage.getItem('user')!);
       }
     });
+  }
+
+  get isLoggedIn(): boolean {
+    const user = JSON.parse(localStorage.getItem('user')!);
+    return user != null ? true : false;
   }
 
   loginUser(email: string, password: string) {
@@ -50,7 +58,6 @@ export class GeneralService {
     this.afAuth.signOut()
       .then(() => {
         this.email = "אורח";
-        this.thereIsUser
       })
       .catch(function (error) { alert(error); });
   }

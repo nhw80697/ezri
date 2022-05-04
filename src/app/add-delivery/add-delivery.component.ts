@@ -2,17 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { GeneralService } from '../general.service';
+import { Delivery } from '../interfaces'
 
-interface Delivery {
-  id: string;
-  product: string;
-  quantity: number;
-  deliveryOrRequest: string;
-  city: Array<object>;
-  messageData: { date: object, user: string }
-  contactInfo: { email: string | null | undefined, phonNumber1: string };
-  comment: string;
-}
 
 @Component({
   selector: 'app-add-delivery',
