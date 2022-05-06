@@ -19,3 +19,11 @@ export interface Delivery {
     contactInfo: { email: string | null | undefined, phonNumber1: string };
     comment: string;
 }
+
+export interface User {
+    id: string;
+    displayName: string;
+    email: string;
+    phonNumber?: string;
+
+}

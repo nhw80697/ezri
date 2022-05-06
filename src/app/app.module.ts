@@ -18,12 +18,14 @@ import { MessageComponent } from './message/message.component';
 import { AddMessageComponent } from './add-message/add-message.component';
 import { DeliveryComponent } from './delivery/delivery.component';
 import { AddDeliveryComponent } from './add-delivery/add-delivery.component';
+import { AccountComponent } from './account/account.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
   { path: 'create-account', component: CreateAccountComponent },
   { path: 'messages', component: MessageComponent, canActivate: [AuthGuard] },
   { path: 'add-message', component: AddMessageComponent },
+  { path: 'account', component: AccountComponent },
   { path: 'delivery', component: DeliveryComponent, canActivate: [AuthGuard] },
   { path: '**', component: MessageComponent, canActivate: [AuthGuard] }
 ];
@@ -37,7 +39,8 @@ const routes: Routes = [
     MessageComponent,
     AddMessageComponent,
     DeliveryComponent,
-    AddDeliveryComponent
+    AddDeliveryComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,

@@ -4,12 +4,18 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
             <li class="nav-item" *ngIf="generalService.isLoggedIn">
-                <a class="nav-link active" routerLink="/messeges">לוח
+                <a class="nav-link" [ngClass]="{'active' :menu.messages}" (click)="selectMenu($event)" name="messages"
+                    routerLink="/messeges">לוח
                     מודעות</a>
             </li>
             <li class="nav-item" *ngIf="generalService.isLoggedIn">
-                <a class="nav-link active" routerLink="/delivery">מזון וציוד רפואי</a>
+                <a class="nav-link" [ngClass]="{'active' :menu.delivery}" (click)="selectMenu($event)" name="delivery"
+                    routerLink="/delivery">מזון וציוד רפואי</a>
             </li>
+            <!-- <li class="nav-item" *ngIf="generalService.isLoggedIn">
+                <a class="nav-link" [ngClass]="{'active' :menu.forum}" (click)="selectMenu($event)" name="delivery"
+                    routerLink="/forum">פורום עזרה הדדית</a>
+            </li> -->
         </ul>
         <ul class="navbar-nav ms-auto">
             <li *ngIf="!generalService.isLoggedIn" class="nav-item"><a class="nav-link" routerLink="/login">היכנס</a>
@@ -17,12 +23,16 @@
             <li *ngIf="!generalService.isLoggedIn" class="nav-item"><a class="nav-link" routerLink="/create-account">צור
                     חשבון</a></li>
 
-            <li *ngIf="generalService.isLoggedIn" class="nav-item"><span class="navbar-text"> {{generalService.email}}
+            <li *ngIf="generalService.isLoggedIn && generalService.userData" class="nav-item"><span class="navbar-text">
+                    {{generalService.userData.displayName}}
                 </span></li>
             <li *ngIf="generalService.isLoggedIn" class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="cursor: pointer;">
                     <li><a class="dropdown-item" *ngIf="generalService.isLoggedIn" (click)="logout()">התנתק</a>
+                    </li>
+                    <li><a class="dropdown-item" *ngIf="generalService.isLoggedIn" routerLink="/account">הגדרות
+                            חשבון</a>
                     </li>
                 </ul>
             </li>

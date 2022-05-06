@@ -1,0 +1,28 @@
+<div style="width: 28%; margin: auto auto; margin-top: 5%;">
+    <p style="text-align: center; font-size: 150%;">הגדרות חשבון</p>
+
+    <form>
+        <div>
+            <label for="email" class="form-label">דואר אלקטרוני:</label>
+            <input style="width: 100%;" type="text" name="email" [(ngModel)]="user.email">
+        </div>
+        <div style="margin-top: 2vh;">
+            <label for="displayName" class="form-label">שם משתמש:</label>
+            <input style="width: 100%;" type="text" name="displayName" [ngModel]="user.displayName">
+        </div>
+        <div style="margin-top: 2vh;">
+            <label for="city" class="form-label">עיר מגורים:</label>
+            <input style="width: 100%;" type="text" name="city" [(ngModel)]="user.city">
+            <!-- <input style="width: 100%;" type="text" name="city" [ngModel]="(userDoc | async).city"> -->
+        </div>
+        <div style="margin-top: 2vh;">
+            <label for="platoon" class="form-label">מחלקה:</label>
+            <select class="form-select" style="width: 100%;" type="text" name="platoon" [(ngModel)]="user.platoon">
+                <option *ngFor="let platton of generalService.platoons">{{platton}}</option>
+            </select>
+        </div>
+        <div style="text-align: center; margin-top: 2vh;">
+            <button type="button" class="btn btn-primary btn-sm" (click)="updateAccount()">עדכון פרטים</button>
+        </div>
+    </form>
+</div>

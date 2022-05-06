@@ -12,11 +12,12 @@ export class GeneralService {
   userData: any;
   email: string | undefined | null = "אורח";
   error: any;
+  platoons: Array<string> = ["גברים", "נשים", "בחורים", "נערות"]
 
   constructor(public afs: AngularFirestore, public afAuth: AngularFireAuth) {
-
     this.afAuth.authState.subscribe(user => {
       if (user) {
+        console.log(user)
         this.email = user.email;
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
@@ -32,6 +33,7 @@ export class GeneralService {
     const user = JSON.parse(localStorage.getItem('user')!);
     return user != null ? true : false;
   }
+
 
   loginUser(email: string, password: string) {
     return this.afAuth.signInWithEmailAndPassword(email, password)

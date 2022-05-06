@@ -24,8 +24,6 @@ export class AddDeliveryComponent implements OnInit {
     { id: 8, name: 'צפת', bool: true }
   ]
 
-  // cities = ["ירושלים", "בני-ברק", "אשדוד", "מודיעין-עילית", "ביתר-עילית", "בית-שמש", "אופקים", "רכסים"]
-
   delivery: Delivery = {
     id: "",
     deliveryOrRequest: "למסירה",

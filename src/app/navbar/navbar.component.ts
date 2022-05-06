@@ -14,9 +14,16 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  isUser: boolean | undefined
+  menu: any = { messages: true, delivery: false }
   email: string | undefined | null = this.generalService.email;
   constructor(public router: Router, public generalService: GeneralService) { }
+
+  selectMenu(e: any) {
+    for (const option in this.menu) {
+      this.menu[option] = false
+    }
+    this.menu[e.target.name] = true
+  }
 
   logout() {
     this.generalService.logoutUser();
