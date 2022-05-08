@@ -27,7 +27,6 @@ export class AccountComponent implements OnInit {
       this.user.email = user?.email
       this.user.id = user?.uid,
         this.user.displayName = user?.displayName
-
       this.afs.collection("users").doc<any>(user.uid).valueChanges().subscribe(res => {
         this.user.city = res.city,
           this.user.platoon = res.platoon

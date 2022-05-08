@@ -8,12 +8,11 @@
         </div>
         <div style="margin-top: 2vh;">
             <label for="displayName" class="form-label">שם משתמש:</label>
-            <input style="width: 100%;" type="text" name="displayName" [ngModel]="user.displayName">
+            <input style="width: 100%;" type="text" name="displayName" [(ngModel)]="user.displayName">
         </div>
         <div style="margin-top: 2vh;">
             <label for="city" class="form-label">עיר מגורים:</label>
             <input style="width: 100%;" type="text" name="city" [(ngModel)]="user.city">
-            <!-- <input style="width: 100%;" type="text" name="city" [ngModel]="(userDoc | async).city"> -->
         </div>
         <div style="margin-top: 2vh;">
             <label for="platoon" class="form-label">מחלקה:</label>

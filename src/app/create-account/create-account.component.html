@@ -1,7 +1,19 @@
 <div class="loginForm">
     <form style="margin-top: 20vh;">
         <p style="text-align: center; font-weight: bold; font-size: 200%;">צור חשבון חדש</p>
-        <div>
+        <div style="margin-top: 2vh;">
+            <label for="platoon" class="form-label">מחלקה:</label>
+            <select class="form-select" style="width: 100%;" type="text" name="platoon" #platoon>
+                <option *ngFor="let platton of generalService.platoons">{{platton}}</option>
+            </select>
+        </div>
+        <div style="margin-top: 2vh;">
+            <input type="text" style="width: 100%;" placeholder='שם משתמש' #displayName>
+        </div>
+        <div style="margin-top: 2vh;">
+            <input type="text" style="width: 100%;" placeholder='עיר מגורים' #city>
+        </div>
+        <div style="margin-top: 2vh;">
             <input type="text" style="width: 100%;" placeholder='דואר אלקטרוני' #email>
         </div>
         <div style="margin-top: 2vh;">
@@ -13,7 +25,7 @@
         <p style="color: red; font-weight: bold;">{{waring}}</p>
         <div style="text-align: center;">
             <button type="button" class="btn btn-primary btn-sm"
-                (click)="createAccount(email.value,password.value,password2.value)">צור
+                (click)="createAccount(email.value,password.value,password2.value, platoon.value, displayName.value, city.value)">צור
                 חשבון</button>
         </div>
 

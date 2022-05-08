@@ -46,9 +46,14 @@ export class GeneralService {
   }
 
 
-  createUser(email: string, password: string) {
+  createUser(email: string, password: string, platoon: string, city: string, displayName: string) {
     return this.afAuth.createUserWithEmailAndPassword(email, password)
-      .then(() => {
+      .then((user: any) => {
+        this.afs.collection("users").doc(user.uid).set({
+          "platoon": platoon,
+          "city": city,
+          "displayName": displayName
+        })
         this.loginUser(email, password);
       })
       .catch((error) => {
