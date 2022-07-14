@@ -1,6 +1,8 @@
 # Ezri
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.1.
+IBD Patients Support Group Management Panel
+Link to the demo version of the site:
+https://example-demo-nnn.netlify.app/
 
 ## Development server
 
